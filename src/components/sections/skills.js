@@ -8,7 +8,7 @@ import sr from '@utils/sr';
 const SkillsSection = styled.section`
   max-width: 960px;
   margin: 0 auto 2rem;
-  padding: 0 1.5rem;
+  padding: 1.5rem 1.5rem;
   max-width: 900px;
 
 .inner {
@@ -21,14 +21,6 @@ const SkillsSection = styled.section`
   }
 }
 `;
-
-// const SkillsHeading = styled.h1`
-//   text-transform: uppercase;
-//   text-align: start;
-//   font-size: 1.5rem;
-//   padding-top: 1.25rem;
-//   color: #CCD6F6;
-// `;
 
 const SkillsGrid = styled.div`
   display: grid;
