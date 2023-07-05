@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { skills } from '../skills';
 import styled from 'styled-components';
+import { usePrefersReducedMotion } from '@hooks';
+import { srConfig } from '@config';
+import sr from '@utils/sr';
 
 const SkillsSection = styled.section`
   max-width: 960px;
   margin: 0 auto 2rem;
   padding: 0 1.5rem;
+  max-width: 900px;
+
+.inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 50px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
 `;
 
-const SkillsHeading = styled.h1`
-  text-transform: uppercase;
-  text-align: start;
-  font-size: 1.5rem;
-  padding-top: 1.25rem;
-  color: #7d7d7e;
-  span {
-    color: #fff;
-  }
-`;
+// const SkillsHeading = styled.h1`
+//   text-transform: uppercase;
+//   text-align: start;
+//   font-size: 1.5rem;
+//   padding-top: 1.25rem;
+//   color: #CCD6F6;
+// `;
 
 const SkillsGrid = styled.div`
   display: grid;
@@ -63,22 +74,30 @@ const SkillName = styled.p`
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1;
-  color: #fff;
+  color: var(--slate);
 `;
 
 const SkillTech = styled.p`
   margin-top: 0.5rem;
   font-size: 0.65rem;
   line-height: 1;
-  color: #fff;
+  color: var(--green);
 `;
 
 export default function Skills() {
+  const revealContainer = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    sr.reveal(revealContainer.current, srConfig());
+  }, []);
   return (
-    <SkillsSection id="skills">
-      <SkillsHeading>
-        Technologies <span>Skills</span>
-      </SkillsHeading>
+    <SkillsSection id="skills" ref={revealContainer}>
+      <h2 className="numbered-heading">Skillset</h2>
       <SkillsGrid>
         {skills.map(({ icon, name, tech }, index) => (
           <Skill
