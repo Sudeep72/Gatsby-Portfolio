@@ -121,6 +121,8 @@ const Footer = () => {
             </div>
           )}
         </a>
+        <h4> Copyright ©️ 2023</h4>
+        <a href="https://sudeep-omega.vercel.app/" target="blank"> View Old Site</a>
       </StyledCredit>
     </StyledFooter>
   );
