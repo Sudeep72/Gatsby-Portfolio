@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -122,7 +123,17 @@ const Footer = () => {
           )}
         </a>
         <h4> Copyright ©️ 2023</h4>
-        <a href="https://sudeep-omega.vercel.app/" target="blank"> View Old Site</a>
+        <div>
+          <a href="https://sudeep-omega.vercel.app/" target="blank">
+            {' '}
+            View Old Site
+          </a>
+        </div>
+        <text>
+          <a href="https://github.com/bchiang7/v4" target="blank">
+            Adapted from the Brittany Chiang Portfolio
+          </a>
+        </text>
       </StyledCredit>
     </StyledFooter>
   );
