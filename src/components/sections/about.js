@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import Spotify from './spotify';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -126,7 +127,14 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Coding', 'Gaming', 'Problem Solving', 'Traveling', 'Mentoring', 'Web Development'];
+  const skills = [
+    'Coding',
+    'Gaming',
+    'Problem Solving',
+    'Traveling',
+    'Mentoring',
+    'Web Development',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -137,16 +145,23 @@ const About = () => {
           <div>
             <p>
               Hello! My name is Sudeep and I enjoy creating things that swing on the internet. My
-              interest in web development started back in 2020 during Covid when I decided to try creating a
-              dashboard for my Discord Bot —  taught me a lot to explore more about HTML &amp; CSS!
+              interest in web development started back in 2020 during Covid when I decided to try
+              creating a dashboard for my Discord Bot — taught me a lot to explore more about HTML
+              &amp; CSS!
             </p>
 
             <p>
-            I am Sudeep, a dedicated student pursuing Computer Science and Engineering at{' '} <a href="https://www.annauniv.edu">College of Engineering Guindy</a>, Anna University, Chennai. With a burning passion for Cyberforensics, I navigate through the intricate realm of algorithms and code. As I delve into digital investigations, I strive to uncover hidden truths and shed light on the complexities of cybercrime.
+              I am Sudeep, a dedicated student pursuing Computer Science and Engineering at{' '}
+              <a href="https://www.annauniv.edu">College of Engineering Guindy</a>, Anna University,
+              Chennai. With a burning passion for Cyberforensics, I navigate through the intricate
+              realm of algorithms and code. As I delve into digital investigations, I strive to
+              uncover hidden truths and shed light on the complexities of cybercrime.
             </p>
 
             <p>
-            Together, let's embark on an adventure where I unveil the secrets that lie within the digital landscape and ensure a safer cyber world. I'm an active member of National Service Scheme (NSS) of Anna University.
+              Together, let's embark on an adventure where I unveil the secrets that lie within the
+              digital landscape and ensure a safer cyber world. I'm an active member of National
+              Service Scheme (NSS) of Anna University.
             </p>
 
             <p>Here are a few of the other activities that I love to do!</p>
@@ -169,6 +184,9 @@ const About = () => {
             />
           </div>
         </StyledPic>
+      </div>
+      <div>
+        <Spotify />
       </div>
     </StyledAboutSection>
   );
