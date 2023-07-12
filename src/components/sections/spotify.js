@@ -25,10 +25,6 @@ const Logo = styled.div`
   }
 `;
 
-// const PlayLogo = styled.div`
-//  margin-top: 1.5rem;
-// `;
-
 const LogoSpace = styled.div`
   width: 0.5rem;
 `;
@@ -44,6 +40,10 @@ const AnimatedBarContainer = styled.div`
   align-items: flex-end;
   overflow: hidden;
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
 `;
 
 const AnimatedBarWrapper = styled.div`
@@ -51,7 +51,6 @@ const AnimatedBarWrapper = styled.div`
   align-items: flex-end;
   overflow: hidden;
   margin-right: 0.5rem;
-  /* padding-top: 1rem; */
 `;
 
 const AnimatedBar = styled.span`
@@ -151,13 +150,15 @@ export default function Spotify() {
           )}
           <div>
             {data?.songUrl ? (
-              <a
-                className="capsize max-w-max truncate font-medium text-gray-200"
-                href={data.songUrl}
-                target="_blank"
-                rel="noopener noreferrer">
-                {data.title.length > 25 ? `${data.title.slice(0, 25)}...` : data.title}
-              </a>
+              <Media>
+                <a
+                  className="capsize max-w-max truncate font-medium text-gray-200"
+                  href={data.songUrl}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  {data.title.length > 25 ? `${data.title.slice(0, 25)}...` : data.title}
+                </a>
+              </Media>
             ) : (
               <Media>
                 <p className="capsize font-medium text-gray-200">Not Playing - Spotify</p>
