@@ -19,7 +19,7 @@ module.exports = {
       url: 'https://www.linkedin.com/in/sudeep-r-878022233/',
     },
     {
-      name: 'Codepen',
+      name: 'Carrd',
       url: 'https://sudeep.carrd.co',
     },
   ],
