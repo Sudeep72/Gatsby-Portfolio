@@ -115,17 +115,7 @@ function AnimatedBars() {
 const fetcher = url => fetch(url).then(res => res.json());
 
 export default function Spotify() {
-  const { data, error, isLoading } = useSWR(
-    'https://glassfolio-test.vercel.app/api/now-playing',
-    fetcher,
-  );
-
-  if (error) {
-    return 'Turn On the Internet to know the activity.';
-  }
-  if (isLoading) {
-    return 'Loading...';
-  }
+  const { data } = useSWR('https://glassfolio-test.vercel.app/api/now-playing', fetcher);
 
   return (
     <CardWrapper>
