@@ -1,5 +1,5 @@
 ---
-date: '1'
+date: '2'
 title: 'Centre for Immersive Technologies'
 cover: './cit.png'
 # github: 'https://github.com/Sudeep72/cit-f'
