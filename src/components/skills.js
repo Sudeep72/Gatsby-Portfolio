@@ -27,7 +27,7 @@ export const skills = [
   {
     icon: '/langs/vite.png',
     name: 'Frontend Frameworks',
-    tech: 'React | Vue.js | Vite.js | Gatsby | Next.js',
+    tech: 'React | Vite.js | Gatsby | Next.js',
   },
   {
     icon: '/langs/nextjs.png',

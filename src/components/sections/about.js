@@ -164,6 +164,11 @@ const About = () => {
               Service Scheme (NSS) of Anna University.
             </p>
 
+            <p>
+              Currently working on a <b>research paper</b> related to Deep Learning and
+              Cybersecurity.
+            </p>
+
             <p>Here are a few of the other activities that I love to do!</p>
           </div>
 
