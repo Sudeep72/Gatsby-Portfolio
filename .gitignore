@@ -9,3 +9,8 @@ package-lock.json
 .DS_Store
 
 .vscode/
+
+public/page-data
+public/manifest.webmanifest
+public/render-page.js
+public/render-page.js.map
