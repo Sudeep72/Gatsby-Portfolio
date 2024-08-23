@@ -75,10 +75,10 @@ const StyledCredit = styled.div`
 `;
 
 const Footer = () => {
-  const [githubInfo, setGitHubInfo] = useState({
-    stars: null,
-    forks: null,
-  });
+  // const [githubInfo, setGitHubInfo] = useState({
+  //   stars: null,
+  //   forks: null,
+  // });
   const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
@@ -87,22 +87,27 @@ const Footer = () => {
     }
 
     // Fetch GitHub repo stats
-    fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio')
-      .then(response => response.json())
-      .then(json => {
-        const { stargazers_count, forks_count } = json;
-        setGitHubInfo({
-          stars: stargazers_count,
-          forks: forks_count,
-        });
-      })
-      .catch(e => console.error(e));
+    // fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio')
+    //   .then(response => response.json())
+    //   .then(json => {
+    //     const { stargazers_count, forks_count } = json;
+    //     setGitHubInfo({
+    //       stars: stargazers_count,
+    //       forks: forks_count,
+    //     });
+    //   })
+    //   .catch(e => console.error(e));
 
     fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio/commits?sha=main&per_page=1')
       .then(response => response.json())
       .then(json => {
         const lastCommitDate = new Date(json[0].commit.committer.date);
-        setLastUpdated(lastCommitDate.toLocaleDateString());
+        const formattedDate = new Intl.DateTimeFormat('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        }).format(lastCommitDate);
+        setLastUpdated(formattedDate);
       })
       .catch(e => console.error(e));
   }, []);
@@ -126,7 +131,7 @@ const Footer = () => {
         <a href="https://github.com/Sudeep72/Gatsby-Portfolio" target="_blank" rel="noreferrer">
           <div>Revamped &amp; Built by Sudeep</div>
 
-          {githubInfo.stars && githubInfo.forks && (
+          {/* {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">
               <span>
                 <Icon name="Star" />
@@ -137,7 +142,7 @@ const Footer = () => {
                 <span>{githubInfo.forks.toLocaleString()}</span>
               </span>
             </div>
-          )}
+          )} */}
         </a>
 
         <h4>Copyright ©️ {new Date().getFullYear()}</h4>
