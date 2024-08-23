@@ -79,13 +79,14 @@ const Footer = () => {
     stars: null,
     forks: null,
   });
-  // const [lastUpdated, setLastUpdated] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
 
+    // Fetch GitHub repo stats
     fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio')
       .then(response => response.json())
       .then(json => {
@@ -97,13 +98,13 @@ const Footer = () => {
       })
       .catch(e => console.error(e));
 
-    // fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio')
-    //   .then(response => response.json())
-    //   .then(json => {
-    //     const lastCommitDate = new Date(json[0].commit.committer.date);
-    //     setLastUpdated(lastCommitDate.toLocaleDateString());
-    //   })
-    //   .catch(e => console.error(e));
+    fetch('https://api.github.com/repos/Sudeep72/Gatsby-Portfolio/commits?sha=main&per_page=1')
+      .then(response => response.json())
+      .then(json => {
+        const lastCommitDate = new Date(json[0].commit.committer.date);
+        setLastUpdated(lastCommitDate.toLocaleDateString());
+      })
+      .catch(e => console.error(e));
   }, []);
 
   return (
@@ -151,7 +152,7 @@ const Footer = () => {
             Adapted from the Brittany Chiang Portfolio
           </a>
         </text>
-        <div className="last-updated">Last updated: August 23 2024</div>
+        {lastUpdated && <div className="last-updated">Last updated: {lastUpdated}</div>}
       </StyledCredit>
     </StyledFooter>
   );
